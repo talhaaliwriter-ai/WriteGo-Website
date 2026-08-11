@@ -1,0 +1,11 @@
+WRITEGO — GITHUB PAGES UPLOAD
+
+1. Extract this ZIP.
+2. Open the extracted WriteGo-Website-GitHub-Final folder.
+3. Upload ALL files and folders INSIDE that folder to the ROOT of the GitHub repository.
+4. Do NOT upload the outer folder itself.
+5. Do NOT delete the repository.
+6. Make sure package.json and package-lock.json are both present at the repository root.
+7. Make sure src contains App.jsx, main.jsx, index.css, components/, and pages/ with their files.
+8. After upload, commit the changes to the main branch.
+9. GitHub Actions will build and deploy the site to GitHub Pages.
