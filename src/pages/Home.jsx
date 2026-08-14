@@ -14,20 +14,75 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-white">
+
       <Navbar />
-      <Hero />
-      <TrustedPlatforms />
-      <Stats />
-      <Services />
-      <Industries />
-      <WhyChoose />
-      <PortfolioSection />
-      <WorkingProcess />
-      <Testimonials />
-      <FAQ />
-      <ContactCTA />
+
+      <main>
+
+        {/* Hero
+          Primary positioning, audience and call-to-action.
+        */}
+        <section id="home">
+          <Hero />
+        </section>
+
+        {/* Trust / Platforms
+          Establishes familiarity and credibility early.
+        */}
+        <section id="trusted-platforms">
+          <TrustedPlatforms />
+        </section>
+
+        {/* Results / Business Snapshot */}
+        <section id="results">
+          <Stats />
+        </section>
+
+        {/* Core Writing Services */}
+        <section id="services">
+          <Services />
+        </section>
+
+        {/* Who We Serve */}
+        <section id="industries">
+          <Industries />
+        </section>
+
+        {/* Reasons to Choose WriteGo */}
+        <section id="why-writego">
+          <WhyChoose />
+        </section>
+
+        {/* Selected Work */}
+        <section id="portfolio">
+          <PortfolioSection />
+        </section>
+
+        {/* Project Workflow */}
+        <section id="process">
+          <WorkingProcess />
+        </section>
+
+        {/* Client Feedback */}
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+
+        {/* Common Questions */}
+        <section id="faq">
+          <FAQ />
+        </section>
+
+        {/* Final Conversion Section */}
+        <section id="contact">
+          <ContactCTA />
+        </section>
+
+      </main>
+
       <Footer />
-    </>
+
+    </div>
   );
 }
