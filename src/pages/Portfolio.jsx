@@ -1,693 +1,368 @@
 import PageShell from "../components/PageShell";
-import { Link } from "react-router-dom";
 
-const portfolioImages = {
-  studentWriting:
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
-
-  femaleStudent:
-    "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1200&q=80",
-
-  maleStudent:
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-
-  laptopWork:
-    "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80",
-
-  research:
-    "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1200&q=80",
-
-  business:
-    "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
-};
-
-const services = [
+const projects = [
   {
-    title: "SEO Content Writing",
-    text: "Search-focused articles and website content created around real user intent, clear structure, useful information and natural keyword placement.",
-    link: "/services",
+    number: "01",
+    category: "SEO & Blog Content",
+    title: "Content That Builds Visibility and Authority",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=80",
+    text: "Strong SEO content is not simply about inserting keywords into an article. It is about understanding what an audience is looking for, structuring information clearly, answering genuine questions, and creating a useful reading experience. At WriteGo, we approach blog and article projects with a balance of search visibility and human readability. Content can be planned around a topic, audience, search intent, brand voice, and business objective before the writing begins. This makes the final article easier to read, easier to navigate, and more useful to the people who discover it through search engines. Our writing support can include blog posts, informational articles, long-form content, website resources, and other editorial material. Each project can be adapted to the required tone, industry, audience, and publishing format.",
   },
   {
-    title: "Blog & Article Writing",
-    text: "Well-researched long-form articles designed to educate readers, answer important questions and strengthen a website's authority.",
-    link: "/services",
+    number: "02",
+    category: "Website Content",
+    title: "Words That Make a Website Feel Professional",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
+    text: "A professional website needs more than attractive design. Visitors also need clear information that explains who the business is, what it offers, why it matters, and what they should do next. WriteGo provides website content designed around these communication needs. We can help develop service descriptions, About pages, landing page copy, business introductions, FAQs, supporting website sections, and other written material required for a professional online presence. The writing is structured to make important information easy to understand while maintaining a consistent voice throughout the website. Whether the audience is made up of customers, businesses, professionals, students, or general readers, the content can be adapted to the purpose of the website. The goal is simple: make every important page communicate clearly and represent the brand with confidence.",
   },
   {
-    title: "Website Content",
-    text: "Professional homepage, service-page, about-page and supporting website copy created to communicate a business clearly.",
-    link: "/services",
+    number: "03",
+    category: "Business & Marketing Content",
+    title: "Professional Communication for Modern Brands",
+    image:
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=80",
+    text: "Businesses communicate with their audiences through many different formats, and every format requires a slightly different approach. Marketing copy needs to be persuasive without becoming difficult to understand. Business content needs to sound professional while remaining accessible. Social media content needs to be concise, relevant, and suitable for its platform. WriteGo supports these different communication needs through tailored writing services. We can create marketing content, promotional copy, business descriptions, social media text, email content, newsletters, product descriptions, and other written assets. Rather than treating every project in exactly the same way, we consider the audience, purpose, tone, and desired action before preparing the content. This approach allows businesses and professionals to maintain a more consistent written identity across their digital channels while communicating their ideas in a clear and credible manner.",
   },
   {
-    title: "Academic & Student Content",
-    text: "Structured writing support for students who need help with research-based content, reports, essays, presentations and written projects.",
-    link: "/services",
-  },
-  {
-    title: "Copywriting",
-    text: "Persuasive website and marketing copy designed to communicate benefits clearly and encourage visitors to take the next step.",
-    link: "/services",
-  },
-  {
-    title: "Editing & Proofreading",
-    text: "Detailed editing focused on grammar, clarity, readability, structure, consistency and professional presentation.",
-    link: "/services",
+    number: "04",
+    category: "Student & Academic Support",
+    title: "Clear, Structured Content for Students",
+    image:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80",
+    text: "Students often need help presenting information in a clear, organized, and professional form. WriteGo can provide writing, editing, proofreading, research-based content support, formatting assistance, and language services depending on the project requirements. The emphasis is on clarity, structure, readability, and accurate communication. Students may need assistance preparing written material, improving drafts, refining language, organizing information, or presenting ideas in a more polished way. Our service can be adapted to different subjects and communication requirements, while the student's own ideas and academic responsibility remain central to the work. We aim to make complicated information easier to communicate and help written material achieve a more professional presentation. Every project can be discussed according to its requirements, length, audience, language, and deadline before work begins.",
   },
 ];
 
-const workTypes = [
-  "SEO Articles",
+const expertise = [
+  "SEO Content Writing",
+  "Blog & Article Writing",
   "Website Content",
-  "Blog Posts",
-  "Business Writing",
-  "Academic Writing Support",
-  "Product Descriptions",
+  "Copywriting",
   "Landing Page Copy",
+  "Product Descriptions",
+  "Business & Corporate Writing",
+  "Technical Writing",
   "Social Media Content",
-  "Email Content",
-  "Research-Based Writing",
+  "Email & Newsletter Writing",
+  "Translation Services",
   "Editing & Proofreading",
-  "Content Optimization",
+];
+
+const process = [
+  {
+    number: "01",
+    title: "Understand",
+    text: "We begin by understanding the project, audience, purpose, tone, requirements, and desired outcome.",
+  },
+  {
+    number: "02",
+    title: "Research",
+    text: "Relevant information, topics, competitors, terminology, and content requirements are reviewed before writing.",
+  },
+  {
+    number: "03",
+    title: "Create",
+    text: "The content is written with a clear structure, appropriate tone, strong readability, and the intended audience in mind.",
+  },
+  {
+    number: "04",
+    title: "Refine",
+    text: "The finished material is reviewed for clarity, consistency, grammar, structure, and overall presentation.",
+  },
 ];
 
 export default function Portfolio() {
   return (
     <PageShell>
-      <main className="bg-white text-gray-900 dark:bg-gray-950 dark:text-white">
+      <main className="bg-white text-gray-950 dark:bg-gray-950 dark:text-white">
 
         {/* HERO */}
-        <section className="px-5 py-20 lg:px-8 lg:py-28">
-          <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
+        <section className="relative overflow-hidden bg-gray-950 text-white">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-blue-950" />
 
-            <div>
-              <p className="font-bold uppercase tracking-[0.25em] text-blue-600">
-                OUR PORTFOLIO
+          <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+            <div className="max-w-5xl">
+              <p className="mb-6 text-sm font-bold uppercase tracking-[0.25em] text-blue-400">
+                WriteGo / Portfolio
               </p>
 
-              <h1 className="mt-5 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
-                Writing That Turns Ideas Into Clear, Professional Content.
+              <h1 className="max-w-5xl text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-8xl">
+                Writing that gives
+                <span className="block text-blue-400">
+                  ideas a stronger voice.
+                </span>
               </h1>
 
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300">
-                WriteGo is a professional writing service platform built to
-                support students, professionals, businesses, brands and
-                website owners with clear, useful and purpose-driven content.
-                Our portfolio represents the different types of writing,
-                editing, research and content-development support that can be
-                delivered through our services.
+              <p className="mt-8 max-w-3xl text-lg leading-8 text-gray-300 sm:text-xl">
+                A closer look at the content disciplines, writing solutions,
+                and professional communication services we provide for
+                businesses, brands, professionals, and students.
               </p>
 
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300">
-                From search-friendly blog articles and website pages to
-                business communication, academic writing support, product
-                descriptions and marketing copy, our approach is centered on
-                understanding the reader first and then creating content that
-                communicates the intended message with clarity.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  to="/services"
-                  className="rounded-xl bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-700"
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href="/WriteGo-Website/services"
+                  className="rounded-full bg-blue-600 px-7 py-3.5 font-bold text-white transition hover:bg-blue-500"
                 >
                   Explore Services
-                </Link>
+                </a>
 
-                <Link
-                  to="/contact"
-                  className="rounded-xl border border-gray-300 px-6 py-3 font-bold transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-900"
+                <a
+                  href="/WriteGo-Website/contact"
+                  className="rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:bg-white/10"
                 >
                   Start a Project
-                </Link>
+                </a>
               </div>
             </div>
-
-            <div className="overflow-hidden rounded-3xl shadow-2xl">
-              <img
-                src={portfolioImages.studentWriting}
-                alt="Students working together on writing and research"
-                className="h-[520px] w-full object-cover"
-              />
-            </div>
-
           </div>
         </section>
 
-        {/* STATS */}
-        <section className="bg-gray-50 px-5 py-16 dark:bg-gray-900">
-          <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-
-            <div className="rounded-3xl bg-white p-8 text-center shadow-sm dark:bg-gray-950">
-              <div className="text-4xl font-black text-blue-600">12+</div>
-              <p className="mt-2 font-semibold text-gray-600 dark:text-gray-300">
-                Content Categories
-              </p>
-            </div>
-
-            <div className="rounded-3xl bg-white p-8 text-center shadow-sm dark:bg-gray-950">
-              <div className="text-4xl font-black text-blue-600">6+</div>
-              <p className="mt-2 font-semibold text-gray-600 dark:text-gray-300">
-                Core Writing Services
-              </p>
-            </div>
-
-            <div className="rounded-3xl bg-white p-8 text-center shadow-sm dark:bg-gray-950">
-              <div className="text-4xl font-black text-blue-600">24/7</div>
-              <p className="mt-2 font-semibold text-gray-600 dark:text-gray-300">
-                Online Project Access
-              </p>
-            </div>
-
-            <div className="rounded-3xl bg-white p-8 text-center shadow-sm dark:bg-gray-950">
-              <div className="text-4xl font-black text-blue-600">100%</div>
-              <p className="mt-2 font-semibold text-gray-600 dark:text-gray-300">
-                Focus on Quality
-              </p>
-            </div>
-
-          </div>
-        </section>
-
-        {/* INTRODUCTION */}
-        <section className="px-5 py-20 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-
-            <p className="text-center font-bold uppercase tracking-[0.2em] text-blue-600">
-              ABOUT OUR WORK
-            </p>
-
-            <h2 className="mt-4 text-center text-4xl font-black sm:text-5xl">
-              A Portfolio Built Around Real Writing Needs
-            </h2>
-
-            <p className="mt-8 text-lg leading-9 text-gray-600 dark:text-gray-300">
-              A professional writing portfolio should do more than display
-              attractive cards or a collection of generic service names. It
-              should help a potential client understand what the writer can
-              actually deliver, who the service is designed for, what type of
-              problems the service can solve, and how the final content can
-              support a wider objective. That is the purpose of the WriteGo
-              portfolio. Our work covers multiple content formats because
-              different clients have different communication requirements.
-              Students may need structured research support and carefully
-              edited written material. Website owners may need informative
-              articles that answer search queries and establish topical
-              authority. Businesses may need website pages, corporate
-              communication and marketing copy that explains their value
-              proposition. Brands may require product descriptions, landing
-              pages or social content that communicates benefits in a direct
-              and engaging way. Instead of treating all writing projects as
-              identical, we approach each project according to its audience,
-              purpose, format and desired outcome. This allows the writing to
-              remain useful rather than becoming generic filler. The portfolio
-              therefore represents a broad professional writing environment
-              where research, structure, readability, tone, editing and
-              communication work together. Every category shown below is
-              designed to demonstrate the type of support a client can expect
-              when working with WriteGo.
-            </p>
-
-          </div>
-        </section>
-
-        {/* FEATURED IMAGE SECTION */}
-        <section className="px-5 pb-20 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
-
-            <div className="overflow-hidden rounded-3xl lg:col-span-2">
-              <img
-                src={portfolioImages.femaleStudent}
-                alt="Female student working on a writing project"
-                className="h-[420px] w-full object-cover"
-              />
-            </div>
-
-            <div className="flex flex-col justify-center rounded-3xl bg-gray-950 p-8 text-white dark:bg-gray-900">
-              <p className="font-bold uppercase tracking-widest text-blue-400">
-                FOR STUDENTS
+        {/* INTRO */}
+        <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12">
+          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
+                The Work
               </p>
 
-              <h2 className="mt-4 text-3xl font-black">
-                Clear Support for Research, Writing & Presentation
+              <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">
+                More than a collection of services.
               </h2>
-
-              <p className="mt-5 leading-8 text-gray-300">
-                Students often need content that is structured, readable and
-                properly organized. WriteGo provides writing and editing
-                support that can help students improve the quality and
-                presentation of their written projects.
-              </p>
-
-              <Link
-                to="/contact"
-                className="mt-7 inline-flex w-fit rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-500"
-              >
-                Discuss Your Project
-              </Link>
             </div>
 
+            <div>
+              <p className="text-xl leading-9 text-gray-700 dark:text-gray-300">
+                A strong portfolio should help a potential client understand
+                not only what a service is, but why the work matters. WriteGo
+                brings together writing, research, editing, communication, and
+                digital content expertise to create material that is designed
+                around a real purpose.
+              </p>
+
+              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+                The sections below represent the main areas in which we can
+                support a project. They are presented as examples of our
+                capabilities rather than claims about specific confidential
+                client projects.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* SERVICES */}
-        <section className="bg-gray-50 px-5 py-20 dark:bg-gray-900 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-
-            <div className="max-w-3xl">
-              <p className="font-bold uppercase tracking-widest text-blue-600">
-                WHAT WE CREATE
+        {/* FEATURED PROJECTS */}
+        <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-8 lg:px-12">
+          <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
+                Featured Work
               </p>
 
-              <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-                Our Writing Services
+              <h2 className="mt-3 text-4xl font-black sm:text-6xl">
+                Our content disciplines.
               </h2>
-
-              <p className="mt-5 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                Explore the main categories of professional writing support
-                available through WriteGo.
-              </p>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {services.map((service) => (
-                <article
-                  key={service.title}
-                  className="rounded-3xl border border-gray-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-gray-800 dark:bg-gray-950"
+            <p className="max-w-md text-gray-600 dark:text-gray-400">
+              Each section presents a different area of writing expertise and
+              the value it can bring to a professional project.
+            </p>
+          </div>
+
+          <div className="space-y-28">
+            {projects.map((project, index) => (
+              <article key={project.number}>
+                <div
+                  className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
+                    index % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""
+                  }`}
                 >
-                  <h3 className="text-2xl font-black">
-                    {service.title}
-                  </h3>
+                  <div className="overflow-hidden rounded-[2rem] bg-gray-100 dark:bg-gray-900">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-[420px] w-full object-cover transition duration-700 hover:scale-105"
+                    />
+                  </div>
 
-                  <p className="mt-4 leading-7 text-gray-600 dark:text-gray-300">
-                    {service.text}
-                  </p>
+                  <div>
+                    <div className="flex items-center gap-4">
+                      <span className="text-sm font-black text-blue-600">
+                        {project.number}
+                      </span>
 
-                  <Link
-                    to={service.link}
-                    className="mt-6 inline-block font-bold text-blue-600"
+                      <span className="h-px w-12 bg-gray-300 dark:bg-gray-700" />
+
+                      <span className="text-sm font-bold uppercase tracking-wider text-gray-500">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-5 text-3xl font-black leading-tight sm:text-4xl">
+                      {project.title}
+                    </h3>
+
+                    <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+                      {project.text}
+                    </p>
+
+                    <a
+                      href="/WriteGo-Website/services"
+                      className="mt-7 inline-flex font-bold text-blue-600 hover:text-blue-500"
+                    >
+                      Explore related services →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* EXPERTISE */}
+        <section className="bg-gray-950 py-24 text-white">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+            <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-400">
+                  Expertise
+                </p>
+
+                <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">
+                  Built around the way modern businesses communicate.
+                </h2>
+              </div>
+
+              <div className="grid gap-x-8 gap-y-0 sm:grid-cols-2">
+                {expertise.map((item, index) => (
+                  <a
+                    key={item}
+                    href="/WriteGo-Website/services"
+                    className="group flex items-center justify-between border-b border-white/10 py-5"
                   >
-                    View Services →
-                  </Link>
-                </article>
-              ))}
+                    <span className="text-lg font-semibold text-gray-200 group-hover:text-white">
+                      {item}
+                    </span>
+
+                    <span className="text-blue-400">
+                      0{index + 1}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
-
-          </div>
-        </section>
-
-        {/* LONG FORM SEO CONTENT */}
-        <section className="px-5 py-20 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2">
-
-            <div>
-              <img
-                src={portfolioImages.laptopWork}
-                alt="Professional content writing and digital work"
-                className="h-[520px] w-full rounded-3xl object-cover"
-              />
-            </div>
-
-            <div>
-              <p className="font-bold uppercase tracking-widest text-blue-600">
-                CONTENT WRITING
-              </p>
-
-              <h2 className="mt-4 text-4xl font-black">
-                SEO Articles, Blogs and Website Content
-              </h2>
-
-              <p className="mt-6 leading-8 text-gray-600 dark:text-gray-300">
-                Content writing is one of the central areas of the WriteGo
-                portfolio. Modern websites require more than pages filled
-                with keywords. They need content that answers genuine
-                questions, communicates expertise and provides a useful
-                experience to the person reading it. Our SEO articles and
-                blog-writing services are designed around this principle. A
-                strong article begins with understanding the topic and the
-                intended reader. Research is then used to organize the subject
-                into a logical structure, with headings, supporting
-                information and useful explanations that make the material
-                easier to consume. Website content follows a similar
-                principle but focuses more directly on communicating a
-                company's services, advantages and positioning. Homepage copy
-                should immediately tell visitors what a business does.
-                Service pages should explain what is offered and why it
-                matters. Supporting content should answer questions that may
-                prevent a visitor from making a decision. This portfolio
-                category demonstrates our ability to work across these
-                different formats while maintaining a consistent focus on
-                clarity, structure and audience intent. Whether the project is
-                a single article, a collection of blog posts or a complete
-                website-content requirement, the objective remains the same:
-                create writing that has a clear purpose and provides genuine
-                value to the reader.
-              </p>
-
-              <Link
-                to="/services"
-                className="mt-7 inline-block rounded-xl bg-blue-600 px-6 py-3 font-bold text-white"
-              >
-                Explore Writing Services
-              </Link>
-            </div>
-
-          </div>
-        </section>
-
-        {/* RESEARCH */}
-        <section className="bg-gray-950 px-5 py-20 text-white dark:bg-black lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:items-center">
-
-            <div>
-              <p className="font-bold uppercase tracking-widest text-blue-400">
-                RESEARCH & QUALITY
-              </p>
-
-              <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-                Research Comes Before Strong Writing
-              </h2>
-
-              <p className="mt-6 leading-8 text-gray-300">
-                Quality writing depends on the quality of the information
-                behind it. For research-based projects, our approach focuses
-                on understanding the subject, identifying the intended
-                audience and organizing information before the writing stage.
-                This is particularly important for students, businesses and
-                websites that publish educational or informational content.
-                Research-based writing should not simply increase word count.
-                It should help the reader understand something. For a student,
-                this may mean presenting information in a logical academic
-                structure. For a business, it may mean explaining an industry
-                topic in a way that demonstrates expertise. For a website, it
-                may mean creating a comprehensive resource around a particular
-                search intent. We therefore treat research as part of the
-                writing process rather than an optional extra. Information is
-                reviewed, organized and converted into readable sections so
-                that the final piece feels coherent. The result is content
-                that is easier to understand, easier to navigate and more
-                appropriate for its intended audience.
-              </p>
-            </div>
-
-            <img
-              src={portfolioImages.research}
-              alt="Research and writing materials"
-              className="h-[480px] w-full rounded-3xl object-cover"
-            />
-
-          </div>
-        </section>
-
-        {/* WORK TYPES */}
-        <section className="px-5 py-20 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-
-            <div className="text-center">
-              <p className="font-bold uppercase tracking-widest text-blue-600">
-                CONTENT FORMATS
-              </p>
-
-              <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-                What We Can Help You Create
-              </h2>
-            </div>
-
-            <div className="mt-12 flex flex-wrap justify-center gap-3">
-              {workTypes.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-gray-200 bg-gray-50 px-5 py-3 font-semibold text-gray-700 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
-        {/* BUSINESS CONTENT */}
-        <section className="px-5 pb-20 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:items-center">
-
-            <div className="order-2 lg:order-1">
-              <p className="font-bold uppercase tracking-widest text-blue-600">
-                FOR BUSINESSES
-              </p>
-
-              <h2 className="mt-4 text-4xl font-black">
-                Professional Content for Brands and Businesses
-              </h2>
-
-              <p className="mt-6 leading-8 text-gray-600 dark:text-gray-300">
-                Businesses need content that represents them professionally.
-                A website visitor may judge a company within seconds based on
-                how clearly its website communicates its services and value.
-                This is why business writing is an important part of our
-                portfolio. We can support companies with website pages,
-                service descriptions, business articles, marketing content,
-                product descriptions and other written materials that require
-                a professional tone. The writing can be adapted according to
-                the industry, target audience and purpose of the page. A
-                technology company may require precise and informative
-                language, while an ecommerce brand may need persuasive product
-                descriptions focused on benefits. A professional service
-                provider may require clear explanations that help potential
-                customers understand the value of its offer. The common
-                requirement is clarity. Visitors should not have to struggle
-                to understand what a company offers. Good business content
-                creates a bridge between the company and its audience, helping
-                people understand the service, recognize its value and decide
-                what action to take next. Our portfolio therefore includes
-                multiple business-content formats rather than treating
-                corporate writing as one single category.
-              </p>
-
-              <Link
-                to="/contact"
-                className="mt-7 inline-block rounded-xl bg-blue-600 px-6 py-3 font-bold text-white"
-              >
-                Request a Writing Solution
-              </Link>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <img
-                src={portfolioImages.business}
-                alt="Business professionals collaborating"
-                className="h-[500px] w-full rounded-3xl object-cover"
-              />
-            </div>
-
-          </div>
-        </section>
-
-        {/* STUDENT SECTION */}
-        <section className="bg-gray-50 px-5 py-20 dark:bg-gray-900 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:items-center">
-
-            <img
-              src={portfolioImages.maleStudent}
-              alt="Student working on a project"
-              className="h-[500px] w-full rounded-3xl object-cover"
-            />
-
-            <div>
-              <p className="font-bold uppercase tracking-widest text-blue-600">
-                STUDENT SUPPORT
-              </p>
-
-              <h2 className="mt-4 text-4xl font-black">
-                Writing Support Designed Around Student Needs
-              </h2>
-
-              <p className="mt-6 leading-8 text-gray-600 dark:text-gray-300">
-                Students frequently work with demanding deadlines and
-                complicated written assignments. They may need help
-                organizing information, improving grammar, making a document
-                easier to read or developing research-based written material.
-                WriteGo can provide professional writing and editing support
-                for appropriate student projects while keeping the focus on
-                quality, structure and clarity. The objective is to help
-                students communicate their ideas more effectively. Our
-                services can include research-based writing support, editing,
-                proofreading, article writing, presentation content and other
-                legitimate written-content requirements. We understand that a
-                student audience may require a different tone and structure
-                from a corporate client. Academic and educational content
-                should be organized carefully, use clear explanations and
-                maintain an appropriate level of formality. That is why our
-                approach begins by understanding the project requirements
-                before deciding how the content should be structured. Students
-                can also use our general writing services for blogs,
-                portfolios, personal projects and professional profiles. The
-                goal is not simply to provide more words. The goal is to help
-                create content that is organized, understandable and
-                professionally presented.
-              </p>
-
-              <Link
-                to="/contact"
-                className="mt-7 inline-block rounded-xl bg-blue-600 px-6 py-3 font-bold text-white"
-              >
-                Discuss Your Requirements
-              </Link>
-            </div>
-
           </div>
         </section>
 
         {/* PROCESS */}
-        <section className="px-5 py-20 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-
-            <div className="max-w-3xl">
-              <p className="font-bold uppercase tracking-widest text-blue-600">
-                OUR APPROACH
-              </p>
-
-              <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-                From Requirement to Final Content
-              </h2>
-            </div>
-
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-
-              <div className="rounded-3xl border border-gray-200 p-7 dark:border-gray-800">
-                <div className="text-3xl font-black text-blue-600">01</div>
-                <h3 className="mt-5 text-xl font-black">Understand</h3>
-                <p className="mt-3 leading-7 text-gray-600 dark:text-gray-300">
-                  We first understand the project, audience, format,
-                  requirements and intended purpose.
-                </p>
-              </div>
-
-              <div className="rounded-3xl border border-gray-200 p-7 dark:border-gray-800">
-                <div className="text-3xl font-black text-blue-600">02</div>
-                <h3 className="mt-5 text-xl font-black">Research</h3>
-                <p className="mt-3 leading-7 text-gray-600 dark:text-gray-300">
-                  Relevant information is organized before writing begins.
-                </p>
-              </div>
-
-              <div className="rounded-3xl border border-gray-200 p-7 dark:border-gray-800">
-                <div className="text-3xl font-black text-blue-600">03</div>
-                <h3 className="mt-5 text-xl font-black">Create</h3>
-                <p className="mt-3 leading-7 text-gray-600 dark:text-gray-300">
-                  The content is developed according to the agreed structure,
-                  tone and objectives.
-                </p>
-              </div>
-
-              <div className="rounded-3xl border border-gray-200 p-7 dark:border-gray-800">
-                <div className="text-3xl font-black text-blue-600">04</div>
-                <h3 className="mt-5 text-xl font-black">Refine</h3>
-                <p className="mt-3 leading-7 text-gray-600 dark:text-gray-300">
-                  The final material is reviewed for clarity, grammar,
-                  structure and presentation.
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* INTERNAL WEBSITE LINKS */}
-        <section className="bg-gray-50 px-5 py-20 dark:bg-gray-900 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-
-            <div className="text-center">
-              <p className="font-bold uppercase tracking-widest text-blue-600">
-                EXPLORE WRITEGO
-              </p>
-
-              <h2 className="mt-4 text-4xl font-black">
-                Continue Exploring Our Website
-              </h2>
-
-              <p className="mx-auto mt-5 max-w-2xl leading-7 text-gray-600 dark:text-gray-300">
-                Explore our services, learn more about WriteGo, read our
-                content and contact us to discuss your project.
-              </p>
-            </div>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-
-              <Link
-                to="/"
-                className="rounded-2xl bg-white p-6 text-center font-black shadow-sm hover:shadow-md dark:bg-gray-950"
-              >
-                Home
-              </Link>
-
-              <Link
-                to="/about"
-                className="rounded-2xl bg-white p-6 text-center font-black shadow-sm hover:shadow-md dark:bg-gray-950"
-              >
-                About Us
-              </Link>
-
-              <Link
-                to="/services"
-                className="rounded-2xl bg-white p-6 text-center font-black shadow-sm hover:shadow-md dark:bg-gray-950"
-              >
-                Services
-              </Link>
-
-              <Link
-                to="/blog"
-                className="rounded-2xl bg-white p-6 text-center font-black shadow-sm hover:shadow-md dark:bg-gray-950"
-              >
-                Blog
-              </Link>
-
-              <Link
-                to="/contact"
-                className="rounded-2xl bg-white p-6 text-center font-black shadow-sm hover:shadow-md dark:bg-gray-950"
-              >
-                Contact
-              </Link>
-
-            </div>
-
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="px-5 py-20 lg:px-8">
-          <div className="mx-auto max-w-5xl rounded-3xl bg-blue-600 px-7 py-14 text-center text-white sm:px-12">
-
-            <p className="font-bold uppercase tracking-widest text-blue-100">
-              READY TO GET STARTED?
+        <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
+              Our Approach
             </p>
 
-            <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-              Let's Create Content That Works for You
+            <h2 className="mt-4 text-4xl font-black sm:text-6xl">
+              A clear process from brief to final content.
             </h2>
 
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-50">
-              Whether you need an article, website content, business writing,
-              editing support or a larger content project, tell us what you
-              need and we can discuss the right solution for your project.
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+              Professional content becomes stronger when the process behind it
+              is organized. Our workflow is designed to keep the project
+              focused, understandable, and aligned with its purpose.
             </p>
+          </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-
-              <Link
-                to="/contact"
-                className="rounded-xl bg-white px-7 py-3 font-black text-blue-600 hover:bg-gray-100"
+          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {process.map((item) => (
+              <div
+                key={item.number}
+                className="border-t-2 border-gray-950 pt-6 dark:border-white"
               >
-                Contact Us
-              </Link>
+                <span className="text-sm font-black text-blue-600">
+                  {item.number}
+                </span>
 
-              <Link
-                to="/services"
-                className="rounded-xl border border-white/60 px-7 py-3 font-black text-white hover:bg-white/10"
-              >
-                View Services
-              </Link>
+                <h3 className="mt-4 text-2xl font-black">
+                  {item.title}
+                </h3>
 
+                <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* WEBSITE LINKS */}
+        <section className="border-y border-gray-200 bg-gray-50 py-20 dark:border-gray-800 dark:bg-gray-900">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
+                  Explore WriteGo
+                </p>
+
+                <h2 className="mt-4 text-4xl font-black sm:text-5xl">
+                  See the rest of the experience.
+                </h2>
+              </div>
+
+              <p className="text-lg leading-8 text-gray-600 dark:text-gray-400">
+                Explore our main pages to learn more about WriteGo, our
+                services, pricing, content approach, and ways to get in touch.
+              </p>
             </div>
 
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["Home", "/WriteGo-Website/"],
+                ["About Us", "/WriteGo-Website/about"],
+                ["Services", "/WriteGo-Website/services"],
+                ["Blog", "/WriteGo-Website/blog"],
+                ["Pricing", "/WriteGo-Website/pricing"],
+                ["Contact Us", "/WriteGo-Website/contact"],
+                ["Privacy Policy", "/WriteGo-Website/privacy-policy"],
+                ["Terms", "/WriteGo-Website/terms"],
+              ].map(([title, href]) => (
+                <a
+                  key={title}
+                  href={href}
+                  className="rounded-2xl border border-gray-200 bg-white p-5 font-bold transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg dark:border-gray-800 dark:bg-gray-950"
+                >
+                  {title}
+                  <span className="ml-2 text-blue-600">↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="bg-blue-600 py-24 text-white">
+          <div className="mx-auto max-w-5xl px-5 text-center sm:px-8">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-100">
+              Have a project in mind?
+            </p>
+
+            <h2 className="mt-5 text-4xl font-black leading-tight sm:text-6xl">
+              Let's turn your ideas into professional content.
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-50">
+              Whether you need an article, website content, business copy,
+              editing, translation, or a complete content solution, tell us
+              what you are working on.
+            </p>
+
+            <a
+              href="/WriteGo-Website/contact"
+              className="mt-9 inline-flex rounded-full bg-white px-8 py-4 font-black text-blue-700 transition hover:bg-gray-100"
+            >
+              Contact WriteGo
+            </a>
           </div>
         </section>
 
