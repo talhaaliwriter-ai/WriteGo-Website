@@ -1,372 +1,504 @@
-import PageShell from "../components/PageShell";
+import { Link } from "react-router-dom";
+import {
+  ArrowUpRight,
+  BookOpen,
+  BriefcaseBusiness,
+  Clock3,
+  FileText,
+  Globe2,
+  PenTool,
+  Search,
+  Sparkles,
+  Target,
+} from "lucide-react";
 
-const projects = [
-  {
-    number: "01",
-    category: "SEO & Blog Content",
-    title: "Content That Builds Visibility and Authority",
-    image:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=80",
-    text: "Strong SEO content is not simply about inserting keywords into an article. It is about understanding what an audience is looking for, structuring information clearly, answering genuine questions, and creating a useful reading experience. At WriteGo, we approach blog and article projects with a balance of search visibility and human readability. Content can be planned around a topic, audience, search intent, brand voice, and business objective before the writing begins. This makes the final article easier to read, easier to navigate, and more useful to the people who discover it through search engines. Our writing support can include blog posts, informational articles, long-form content, website resources, and other editorial material. Each project can be adapted to the required tone, industry, audience, and publishing format.",
-  },
-  {
-    number: "02",
-    category: "Website Content",
-    title: "Words That Make a Website Feel Professional",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
-    text: "A professional website needs more than attractive design. Visitors also need clear information that explains who the business is, what it offers, why it matters, and what they should do next. WriteGo provides website content designed around these communication needs. We can help develop service descriptions, About pages, landing page copy, business introductions, FAQs, supporting website sections, and other written material required for a professional online presence. The writing is structured to make important information easy to understand while maintaining a consistent voice throughout the website. Whether the audience is made up of customers, businesses, professionals, students, or general readers, the content can be adapted to the purpose of the website. The goal is simple: make every important page communicate clearly and represent the brand with confidence.",
-  },
-  {
-    number: "03",
-    category: "Business & Marketing Content",
-    title: "Professional Communication for Modern Brands",
-    image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=80",
-    text: "Businesses communicate with their audiences through many different formats, and every format requires a slightly different approach. Marketing copy needs to be persuasive without becoming difficult to understand. Business content needs to sound professional while remaining accessible. Social media content needs to be concise, relevant, and suitable for its platform. WriteGo supports these different communication needs through tailored writing services. We can create marketing content, promotional copy, business descriptions, social media text, email content, newsletters, product descriptions, and other written assets. Rather than treating every project in exactly the same way, we consider the audience, purpose, tone, and desired action before preparing the content. This approach allows businesses and professionals to maintain a more consistent written identity across their digital channels while communicating their ideas in a clear and credible manner.",
-  },
-  {
-    number: "04",
-    category: "Student & Academic Support",
-    title: "Clear, Structured Content for Students",
-    image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80",
-    text: "Students often need help presenting information in a clear, organized, and professional form. WriteGo can provide writing, editing, proofreading, research-based content support, formatting assistance, and language services depending on the project requirements. The emphasis is on clarity, structure, readability, and accurate communication. Students may need assistance preparing written material, improving drafts, refining language, organizing information, or presenting ideas in a more polished way. Our service can be adapted to different subjects and communication requirements, while the student's own ideas and academic responsibility remain central to the work. We aim to make complicated information easier to communicate and help written material achieve a more professional presentation. Every project can be discussed according to its requirements, length, audience, language, and deadline before work begins.",
-  },
-];
-
-const expertise = [
-  "SEO Content Writing",
-  "Blog & Article Writing",
+const categories = [
+  "All",
+  "SEO & Content",
+  "Blog Writing",
   "Website Content",
   "Copywriting",
-  "Landing Page Copy",
-  "Product Descriptions",
-  "Business & Corporate Writing",
-  "Technical Writing",
-  "Social Media Content",
-  "Email & Newsletter Writing",
-  "Translation Services",
-  "Editing & Proofreading",
+  "Business Writing",
 ];
 
-const process = [
+const articles = [
   {
-    number: "01",
-    title: "Understand",
-    text: "We begin by understanding the project, audience, purpose, tone, requirements, and desired outcome.",
+    title: "How Professional SEO Content Helps Businesses Grow",
+    category: "SEO & Content",
+    readTime: "7 min read",
+    date: "Featured Guide",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80",
+    excerpt:
+      "Professional SEO content is more than placing keywords inside an article. Strong content connects search intent, useful information, clear structure, readability, and business objectives to create a better experience for both readers and search engines.",
+    icon: Search,
   },
   {
-    number: "02",
-    title: "Research",
-    text: "Relevant information, topics, competitors, terminology, and content requirements are reviewed before writing.",
+    title: "Blog Writing vs. Copywriting: What Does Your Business Need?",
+    category: "Blog Writing",
+    readTime: "6 min read",
+    date: "Writing Guide",
+    image:
+      "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80",
+    excerpt:
+      "Blog writing and copywriting serve different purposes. Understanding the difference can help businesses choose the right type of content for education, brand awareness, lead generation, sales, and long-term digital growth.",
+    icon: PenTool,
   },
   {
-    number: "03",
-    title: "Create",
-    text: "The content is written with a clear structure, appropriate tone, strong readability, and the intended audience in mind.",
+    title: "How to Write Website Content That Builds Trust",
+    category: "Website Content",
+    readTime: "8 min read",
+    date: "Website Guide",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80",
+    excerpt:
+      "Your website is often the first serious interaction a potential customer has with your business. Clear, credible and audience-focused website content can explain your value, answer important questions and guide visitors toward action.",
+    icon: Globe2,
   },
   {
-    number: "04",
-    title: "Refine",
-    text: "The finished material is reviewed for clarity, consistency, grammar, structure, and overall presentation.",
+    title: "Why Professional Product Descriptions Matter",
+    category: "Copywriting",
+    readTime: "6 min read",
+    date: "Business Guide",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+    excerpt:
+      "A product description should do more than list features. It should explain benefits, answer customer questions, communicate value and make the product easier to understand before a buying decision is made.",
+    icon: BriefcaseBusiness,
   },
 ];
 
-export default function Portfolio() {
+const topics = [
+  {
+    title: "SEO Content",
+    description:
+      "Practical guidance about search-friendly content, content strategy, search intent and organic visibility.",
+    icon: Search,
+  },
+  {
+    title: "Blog Writing",
+    description:
+      "Ideas and techniques for creating useful, readable and engaging blog articles for modern audiences.",
+    icon: BookOpen,
+  },
+  {
+    title: "Website Content",
+    description:
+      "Guides for writing clearer homepages, service pages, landing pages and professional website copy.",
+    icon: Globe2,
+  },
+  {
+    title: "Copywriting",
+    description:
+      "Content ideas focused on persuasive messaging, positioning, calls to action and customer communication.",
+    icon: PenTool,
+  },
+];
+
+export default function Blog() {
   return (
-    <PageShell>
-      <main className="bg-white text-gray-950 dark:bg-gray-950 dark:text-white">
+    <div className="min-h-screen bg-white text-slate-900">
 
-        {/* HERO */}
-        <section className="relative overflow-hidden bg-gray-950 text-white">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-blue-950" />
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-slate-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950" />
 
-          <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
-            <div className="max-w-5xl">
-              <p className="mb-6 text-sm font-bold uppercase tracking-[0.25em] text-blue-400">
-                WriteGo / Portfolio
-              </p>
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-indigo-200">
+              <Sparkles size={16} />
+              WriteGo Insights
+            </div>
 
-              <h1 className="max-w-5xl text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-8xl">
-                Writing that gives
-                <span className="block text-blue-400">
-                  ideas a stronger voice.
-                </span>
-              </h1>
+            <h1 className="mt-7 text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Ideas, strategies and practical
+              <span className="block text-indigo-400">
+                writing insights for modern businesses.
+              </span>
+            </h1>
 
-              <p className="mt-8 max-w-3xl text-lg leading-8 text-gray-300 sm:text-xl">
-                A closer look at the content disciplines, writing solutions,
-                and professional communication services we provide for
-                businesses, brands, professionals, and students.
-              </p>
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300">
+              Explore practical articles about SEO content, blog writing,
+              website content, copywriting, business communication and
+              professional digital content. Our goal is to make complex
+              writing decisions easier to understand and easier to apply.
+            </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="/WriteGo-Website/services"
-                  className="rounded-full bg-blue-600 px-7 py-3.5 font-bold text-white transition hover:bg-blue-500"
-                >
-                  Explore Services
-                </a>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a
+                href="#latest"
+                className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 font-bold text-white transition hover:bg-indigo-500"
+              >
+                Explore Articles
+                <ArrowUpRight size={18} />
+              </a>
 
-                <a
-                  href="/WriteGo-Website/contact"
-                  className="rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:bg-white/10"
-                >
-                  Start a Project
-                </a>
-              </div>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 font-bold text-white transition hover:bg-white/10"
+              >
+                Explore Services
+              </Link>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* INTRO */}
-        <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12">
-          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
-                The Work
-              </p>
+      {/* Categories */}
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-wrap gap-3 px-5 py-6 sm:px-8 lg:px-12">
+          {categories.map((category, index) => (
+            <a
+              key={category}
+              href="#latest"
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                index === 0
+                  ? "bg-slate-950 text-white"
+                  : "bg-slate-100 text-slate-700 hover:bg-indigo-50 hover:text-indigo-700"
+              }`}
+            >
+              {category}
+            </a>
+          ))}
+        </div>
+      </section>
 
-              <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">
-                More than a collection of services.
-              </h2>
-            </div>
+      {/* Featured Article */}
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12">
+        <div className="mb-10">
+          <p className="text-sm font-black uppercase tracking-widest text-indigo-600">
+            Featured Insight
+          </p>
 
-            <div>
-              <p className="text-xl leading-9 text-gray-700 dark:text-gray-300">
-                A strong portfolio should help a potential client understand
-                not only what a service is, but why the work matters. WriteGo
-                brings together writing, research, editing, communication, and
-                digital content expertise to create material that is designed
-                around a real purpose.
-              </p>
+          <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+            Start with our latest guide
+          </h2>
+        </div>
 
-              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-                The sections below represent the main areas in which we can
-                support a project. They are presented as examples of our
-                capabilities rather than claims about specific confidential
-                client projects.
-              </p>
-            </div>
+        <article className="grid overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm lg:grid-cols-2">
+          <div className="min-h-[320px] overflow-hidden">
+            <img
+              src={articles[0].image}
+              alt="Professional content strategy workspace"
+              className="h-full w-full object-cover transition duration-500 hover:scale-105"
+            />
           </div>
-        </section>
 
-        {/* FEATURED PROJECTS */}
-        <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-8 lg:px-12">
-          <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
-                Featured Work
-              </p>
-
-              <h2 className="mt-3 text-4xl font-black sm:text-6xl">
-                Our content disciplines.
-              </h2>
+          <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-14">
+            <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-indigo-600">
+              <span>{articles[0].category}</span>
+              <span className="text-slate-300">•</span>
+              <span className="flex items-center gap-1 text-slate-500">
+                <Clock3 size={15} />
+                {articles[0].readTime}
+              </span>
             </div>
 
-            <p className="max-w-md text-gray-600 dark:text-gray-400">
-              Each section presents a different area of writing expertise and
-              the value it can bring to a professional project.
+            <h3 className="mt-5 text-3xl font-black leading-tight text-slate-950 sm:text-4xl">
+              {articles[0].title}
+            </h3>
+
+            <p className="mt-5 leading-8 text-slate-600">
+              {articles[0].excerpt}
+            </p>
+
+            <Link
+              to="/services"
+              className="mt-8 inline-flex w-fit items-center gap-2 rounded-lg bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-indigo-600"
+            >
+              Explore Content Services
+              <ArrowUpRight size={18} />
+            </Link>
+          </div>
+        </article>
+      </section>
+
+      {/* Topics */}
+      <section className="bg-slate-50 py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-black uppercase tracking-widest text-indigo-600">
+              Explore Topics
+            </p>
+
+            <h2 className="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">
+              Content built around the questions that matter
+            </h2>
+
+            <p className="mt-5 leading-8 text-slate-600">
+              Browse our main content areas and discover practical guidance
+              related to the writing services businesses and professionals
+              need most.
             </p>
           </div>
 
-          <div className="space-y-28">
-            {projects.map((project, index) => (
-              <article key={project.number}>
-                <div
-                  className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
-                    index % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""
-                  }`}
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {topics.map((topic) => {
+              const Icon = topic.icon;
+
+              return (
+                <a
+                  key={topic.title}
+                  href="#latest"
+                  className="group rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="overflow-hidden rounded-[2rem] bg-gray-100 dark:bg-gray-900">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-[420px] w-full object-cover transition duration-700 hover:scale-105"
-                    />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white">
+                    <Icon size={22} />
                   </div>
 
-                  <div>
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm font-black text-blue-600">
-                        {project.number}
-                      </span>
+                  <h3 className="mt-5 text-xl font-black text-slate-950">
+                    {topic.title}
+                  </h3>
 
-                      <span className="h-px w-12 bg-gray-300 dark:bg-gray-700" />
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {topic.description}
+                  </p>
 
-                      <span className="text-sm font-bold uppercase tracking-wider text-gray-500">
-                        {project.category}
-                      </span>
-                    </div>
+                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-indigo-600">
+                    Browse topic
+                    <ArrowUpRight size={16} />
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-                    <h3 className="mt-5 text-3xl font-black leading-tight sm:text-4xl">
-                      {project.title}
-                    </h3>
+      {/* Latest Articles */}
+      <section
+        id="latest"
+        className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12"
+      >
+        <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-sm font-black uppercase tracking-widest text-indigo-600">
+              Latest Articles
+            </p>
 
-                    <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-                      {project.text}
-                    </p>
+            <h2 className="mt-3 text-3xl font-black text-slate-950 sm:text-4xl">
+              Practical knowledge for better content
+            </h2>
+          </div>
 
-                    <a
-                      href="/WriteGo-Website/services"
-                      className="mt-7 inline-flex font-bold text-blue-600 hover:text-blue-500"
-                    >
-                      Explore related services →
-                    </a>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 font-bold text-indigo-600"
+          >
+            View our services
+            <ArrowUpRight size={18} />
+          </Link>
+        </div>
+
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {articles.slice(1).map((article) => {
+            const Icon = article.icon;
+
+            return (
+              <article
+                key={article.title}
+                className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+
+                  <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-white/95 px-3 py-2 text-xs font-bold text-indigo-700 shadow">
+                    <Icon size={14} />
+                    {article.category}
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
 
-        {/* EXPERTISE */}
-        <section className="bg-gray-950 py-24 text-white">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-            <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-              <div>
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-400">
-                  Expertise
-                </p>
+                <div className="p-7">
+                  <div className="flex items-center gap-3 text-xs font-semibold text-slate-500">
+                    <span>{article.date}</span>
+                    <span>•</span>
+                    <span>{article.readTime}</span>
+                  </div>
 
-                <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">
-                  Built around the way modern businesses communicate.
-                </h2>
-              </div>
+                  <h3 className="mt-4 text-2xl font-black leading-tight text-slate-950">
+                    {article.title}
+                  </h3>
 
-              <div className="grid gap-x-8 gap-y-0 sm:grid-cols-2">
-                {expertise.map((item, index) => (
-                  <a
-                    key={item}
-                    href="/WriteGo-Website/services"
-                    className="group flex items-center justify-between border-b border-white/10 py-5"
+                  <p className="mt-4 leading-7 text-slate-600">
+                    {article.excerpt}
+                  </p>
+
+                  <Link
+                    to="/services"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-black text-indigo-600"
                   >
-                    <span className="text-lg font-semibold text-gray-200 group-hover:text-white">
-                      {item}
-                    </span>
+                    Explore related services
+                    <ArrowUpRight size={17} />
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
 
-                    <span className="text-blue-400">
-                      0{index + 1}
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* PROCESS */}
-        <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-12">
-          <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
-              Our Approach
+      {/* Content Philosophy */}
+      <section className="bg-slate-950 py-20">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:px-12 lg:items-center">
+          <div>
+            <p className="text-sm font-black uppercase tracking-widest text-indigo-400">
+              Why WriteGo Insights?
             </p>
 
-            <h2 className="mt-4 text-4xl font-black sm:text-6xl">
-              A clear process from brief to final content.
+            <h2 className="mt-3 text-3xl font-black text-white sm:text-4xl">
+              Useful content should lead to useful decisions.
             </h2>
 
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-              Professional content becomes stronger when the process behind it
-              is organized. Our workflow is designed to keep the project
-              focused, understandable, and aligned with its purpose.
+            <p className="mt-6 leading-8 text-slate-300">
+              Our blog is designed around practical questions businesses,
+              professionals and students face when creating digital content.
+              Instead of publishing disconnected topics, we can build related
+              content around our core services so readers can move naturally
+              from an educational article to a relevant service.
             </p>
+
+            <p className="mt-5 leading-8 text-slate-300">
+              As the library grows, articles can be connected into focused
+              topic groups covering SEO content, blogging, website writing,
+              copywriting, business communication and other areas. This makes
+              the blog easier for visitors to explore and creates a clearer
+              internal structure for the website.
+            </p>
+
+            <Link
+              to="/about"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-bold text-slate-950 transition hover:bg-indigo-50"
+            >
+              Learn About WriteGo
+              <ArrowUpRight size={18} />
+            </Link>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {process.map((item) => (
-              <div
-                key={item.number}
-                className="border-t-2 border-gray-950 pt-6 dark:border-white"
-              >
-                <span className="text-sm font-black text-blue-600">
-                  {item.number}
-                </span>
-
-                <h3 className="mt-4 text-2xl font-black">
-                  {item.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* WEBSITE LINKS */}
-        <section className="border-y border-gray-200 bg-gray-50 py-20 dark:border-gray-800 dark:bg-gray-900">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
-              <div>
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
-                  Explore WriteGo
-                </p>
-
-                <h2 className="mt-4 text-4xl font-black sm:text-5xl">
-                  See the rest of the experience.
-                </h2>
-              </div>
-
-              <p className="text-lg leading-8 text-gray-600 dark:text-gray-400">
-                Explore our main pages to learn more about WriteGo, our
-                services, pricing, content approach, and ways to get in touch.
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <Target className="text-indigo-400" size={25} />
+              <h3 className="mt-4 font-black text-white">
+                Audience Focused
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-400">
+                Articles are planned around real reader questions and business
+                needs.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                ["Home", "/WriteGo-Website/"],
-                ["About Us", "/WriteGo-Website/about"],
-                ["Services", "/WriteGo-Website/services"],
-                ["Blog", "/WriteGo-Website/blog"],
-                ["Pricing", "/WriteGo-Website/pricing"],
-                ["Contact Us", "/WriteGo-Website/contact"],
-                ["Privacy Policy", "/WriteGo-Website/privacy-policy"],
-                ["Terms", "/WriteGo-Website/terms"],
-              ].map(([title, href]) => (
-                <a
-                  key={title}
-                  href={href}
-                  className="rounded-2xl border border-gray-200 bg-white p-5 font-bold transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg dark:border-gray-800 dark:bg-gray-950"
-                >
-                  {title}
-                  <span className="ml-2 text-blue-600">↗</span>
-                </a>
-              ))}
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <FileText className="text-indigo-400" size={25} />
+              <h3 className="mt-4 font-black text-white">
+                Practical Guides
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-400">
+                Clear explanations designed to help readers take action.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <Search className="text-indigo-400" size={25} />
+              <h3 className="mt-4 font-black text-white">
+                Search Friendly
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-400">
+                Future articles can be organized into connected topic
+                clusters.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <BriefcaseBusiness className="text-indigo-400" size={25} />
+              <h3 className="mt-4 font-black text-white">
+                Business Relevant
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-400">
+                Content stays connected to the professional services we offer.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* FINAL CTA */}
-        <section className="bg-blue-600 py-24 text-white">
-          <div className="mx-auto max-w-5xl px-5 text-center sm:px-8">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-100">
-              Have a project in mind?
-            </p>
+      {/* Internal Navigation */}
+      <section className="border-b border-slate-200 bg-white py-16">
+        <div className="mx-auto max-w-7xl px-5 text-center sm:px-8 lg:px-12">
+          <p className="text-sm font-black uppercase tracking-widest text-indigo-600">
+            Continue Exploring
+          </p>
 
-            <h2 className="mt-5 text-4xl font-black leading-tight sm:text-6xl">
-              Let's turn your ideas into professional content.
-            </h2>
+          <h2 className="mt-3 text-3xl font-black text-slate-950">
+            Explore more from WriteGo
+          </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-blue-50">
-              Whether you need an article, website content, business copy,
-              editing, translation, or a complete content solution, tell us
-              what you are working on.
-            </p>
-
-            <a
-              href="/WriteGo-Website/contact"
-              className="mt-9 inline-flex rounded-full bg-white px-8 py-4 font-black text-blue-700 transition hover:bg-gray-100"
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/about"
+              className="rounded-lg border border-slate-200 px-5 py-3 font-bold text-slate-700 transition hover:border-indigo-300 hover:text-indigo-600"
             >
-              Contact WriteGo
-            </a>
-          </div>
-        </section>
+              About Us
+            </Link>
 
-      </main>
-    </PageShell>
+            <Link
+              to="/services"
+              className="rounded-lg border border-slate-200 px-5 py-3 font-bold text-slate-700 transition hover:border-indigo-300 hover:text-indigo-600"
+            >
+              Services
+            </Link>
+
+            <Link
+              to="/portfolio"
+              className="rounded-lg border border-slate-200 px-5 py-3 font-bold text-slate-700 transition hover:border-indigo-300 hover:text-indigo-600"
+            >
+              Portfolio
+            </Link>
+
+            <Link
+              to="/contact"
+              className="rounded-lg border border-slate-200 px-5 py-3 font-bold text-slate-700 transition hover:border-indigo-300 hover:text-indigo-600"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="bg-indigo-600 py-20">
+        <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
+          <h2 className="text-3xl font-black text-white sm:text-4xl">
+            Need professional content for your next project?
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-indigo-100">
+            Whether you need SEO articles, website content, blog posts,
+            copywriting, product descriptions, business writing or editing,
+            WriteGo can help you turn your ideas into clear, professional
+            content.
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/services"
+              className="rounded-lg bg-white px-6 py-3 font-bold text-indigo-700 transition hover:bg-indigo-50"
+            >
+              View Services
+            </Link>
+
+            <Link
+              to="/contact"
+              className="rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-bold text-white transition hover:bg-white/20"
+            >
+              Start a Project
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </div>
   );
 }
